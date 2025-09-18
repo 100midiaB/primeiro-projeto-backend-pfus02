@@ -1,0 +1,25 @@
+{
+    "usuarios" :[
+       {
+         "id": 7,
+         "nome": "Raul bigode",
+         "email": "Raulbidode@gmail.com",
+         "senha": "171"
+       },
+       {
+        "id": 20,
+         "nome": "Ronaldão",
+         "email": "Ronadão@gmail.com",
+         "senha": "2009"
+       },
+       
+       {
+        "id": 10,
+         "nome": "Alele",
+         "email": "Alele@gmail.com",
+         "senha": "1001"
+       }
+       
+    ]
+    
+}
