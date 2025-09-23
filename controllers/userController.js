@@ -3,6 +3,7 @@ const path = require("path")
 
 //IMPORTA TUDO QUE TEM NO MODEL
 const userModel = require("../models/userModel")
+const { render } = require("ejs")
 
 module.exports = {
     //RESPONDE A REQUISIÇÃO MOSTRANDO A VISUALIZAÇÃO DA TELA DE LOGIN
@@ -25,5 +26,75 @@ module.exports = {
         else{
             res.json({mensagem: "Login relaizado meu parceiro"})
           }
+    },
+
+    // CRUD
+    //RESPONDE A REQUISIÇÃO MOSTRANDO A VISUALIZAÇÃO DA TELA DE CADASTRO
+    formCadastro: (req,res) => {
+        res.render("cadastro")
+    },
+
+    // FUNÇÃO PARA LEVAR OS DADOS PREENCHIDOS PARA O MODEL REALIZAR O CADASTRO
+    salvarUsuario: (req,res) => {
+        const {usuario, email, senha} = req.body
+        userModel.salvar({usuario, email, senha})
+        res.render("cadastroConfirmado")
+    },
+    
+    //R
+    //FUNÇÃO PARA MOSTRAR TODOS OS USUARIOS
+   
+    listarUsuarios: (req,res) => {
+        const usuarios = userModel.listarTodos()
+        res.json(usuarios)
+        res.render("usuarios", {usuarios})
+    },
+    
+    //FUNÇÃO PARA APENAS UM USUARIO
+    buscarUsuario: (req,res) => {
+        //BUSCA O ID VINDO DA URL COMO PARAMETRO
+        const id = req.params.id
+
+        // GUARDA O USUÁRIO RETORNADO, DEPOIS DE BUSCAR PELO MODEL
+        const usuario = userModel.buscarPorId(id)
+        // SE NÃO ACHAR, AVIA QUE DEU ERRO
+        if(!usuario){
+            return res.status(404).json({mensagem: "Usuário não encontrado"})
+        }
+        // SE ACHAR, DEVOLVE AS INFORMAÇÕES VIA JSON
+        res.json(usuario)
+    },
+    //FUNÇÃO PARA ATUALIZAR INFORMAÇÕES DE UM USUARIO
+    atualizarUsuario: (req,res) => {
+       //BUSCA O ID VINDO DA URL COMO PARAMETRO
+       const id = req.params.id;
+       //BUSCA AS NOVAS INFORMAÇÕES PARA ATUALIZAR
+       const { usuario, email, senha } = req.body
+       //GUARDA O USUARIO ATUALIZADO EM UMA VARIAVEL
+
+       const usuarioAtualizado = userModel.atualizar(id, {usuario, email, senha})
+
+        // SE NÃO ACHAR, AVIA QUE DEU ERRO
+        if(!usuario){
+            return res.status(404).json({mensagem: "Usuário não encontrado"})
+           }
+           // SE ACHAR, DEVOLVE AS INFORMAÇÕES VIA JSON
+        res.json({mensagem: "Usuario foi atualizado"})
+        },
+    //FUNÇÃO PARA DELETAR UM USUARIO
+    deletarUsuario: (req,res) => {
+     //BUSCA O ID VINDO DA URL COMO PARAMETRO
+     const id = req.paramas.id;
+     //GUARDA O USUARIO DELETADO EM UMA VARIAVEL
+     const deletado = userModel.deletar(id);
+
+     // SE NÃO ACHAR, AVIA QUE DEU ERRO
+        if(!usuario){
+            return res.status(404).json({mensagem: "Usuário não encontrado"})
+           }
+           // SE ACHAR, DEVOLVE AS INFORMAÇÕES VIA JSON
+        res.json({mensagem: "Usuario foi deletado"})
+        
+
     }
-}
+    }
