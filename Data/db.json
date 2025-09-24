@@ -20,6 +20,34 @@
          "senha": "1001"
        }
        
-    ]
-    
+    ],
+
+     "produtos" :[
+      {
+        "id" : 22,
+        "nome" : "pote",
+        "descrição": "guarda varias coisas",
+        "preço" : 10,
+        "quantidade" : 2,
+        "categoria": "utilitário domestico"
+      },
+      {
+        "id" : 21,
+        "nome" : "Camisa",
+        "descrição": "Te deixa vestido",
+        "preço" :90,
+        "quantidade" : 1,
+        "categoria": "Roupa"
+      },
+      {
+        "id" : 20,
+        "nome" : "apartamento",
+        "descrição": "lugar para se residir",
+        "preço" : 750.00,
+        "quantidade" : 1,
+        "categoria": "Moradia"
+      }
+
+     ]
+
 }

@@ -12,6 +12,8 @@ const caminho = path.join(__dirname, "views")
 //IMPORTA AS ROTAS DE USUÁRIO
 const userRoutes = require("./routes/userRoutes")
 
+const produtoRoutes = require("./routes/produtoRoutes")
+
 //INTERPRETADOR DE JSON, PARA TRATAR AS INFORMAÇÕES DO BODY
 app.use(express.urlencoded({extended:true} ))
 app.use(express.json())
@@ -19,6 +21,8 @@ app.use(express.json())
 
 //CRIA UMA ROTA PRICIPAL PARA AS SUB ROTAS DE USUÁRIO
 app.use("/usuarios", userRoutes)
+
+app.use("/produtos", produtoRoutes)
 
 //DEFININDO O EJS COMO TEMPLE ENGINE
 app.set('view engine', 'ejs')
@@ -31,6 +35,7 @@ app.get("/home", (req,res) => {
     res.status(200)
     res.render("index")
 })
+
 
 //ROTA PRA QUANDO TENTAR ACESSAR UMA ROTA QUE NÃO EXISTE
 app.use((req,res) => {

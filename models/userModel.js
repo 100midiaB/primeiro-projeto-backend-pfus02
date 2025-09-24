@@ -1,5 +1,5 @@
 // IMPORTAR O JSON PARA SERVIR COMO BANCO DE DADOS
-const { atualizarUsuario } = require("../controllers/userController")
+
 const db = require("../Data/db.json")
 
 //VARIÁVEL PARA ARMAZENAR OS USUÁRIOS VINDOS DO DB
