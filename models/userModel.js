@@ -63,4 +63,4 @@ module.exports = {
           listaUsuarios.splice(index,1);
           return true;
      },
-}
+}  

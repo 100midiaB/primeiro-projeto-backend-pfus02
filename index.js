@@ -33,18 +33,18 @@ app.set("views",path.join(__dirname, "views"))
 //ROTA DE PÁGINA INICIAL
 app.get("/home", (req,res) => {
     res.status(200)
-    res.render("index")
+    res.render("index", { titulo: "Página inicial"})
 })
 
+//ROTA INICIAL DO PROJETO
+app.get("/",(req,res)  => {
+    res.status(200).render("index", { titulo: "Página inicial"})
+})
 
 //ROTA PRA QUANDO TENTAR ACESSAR UMA ROTA QUE NÃO EXISTE
 app.use((req,res) => {
     res.status(404)
-    res.render("404")
-})
-//ROTA INICIAL DO PROJETO
-app.get("/",(req,res)  => {
-    res.status(200).send("Olá, parabéns conseguiu")
+    res.render("404", { titulo: "Página de erro"})
 })
 //SUBIR O SERVIDOR
 app.listen(port, () => {
