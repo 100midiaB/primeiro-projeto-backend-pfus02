@@ -38,7 +38,7 @@
         class="form-control form-control-lg text-center"
         id="inputSenha"
         placeholder="Digite sua senha..."
-        name="senha  "
+        name="senha"
         />
         <!-- FIM DA CAIXINHA DE SENHA -->
 
@@ -46,10 +46,13 @@
          <button type="submit" class="btn btn-primary btn-lg mt-2">Entrar</button>
       </form>
 
-      <!-- CAIXINHA DE ALERTA -->
+      <!-- CAIXINHA DE ALERTA SÓ APARECE SE ELE ERRAR O LOGIN -->
+      <% if ( typeof erro !== "undefined") { %>
+           <!-- CAIXINHA DE ALERTA -->
        <div class="alert alert-danger text-center mx-auto mt-3" style="width: 50%;">
               Usuário ou senha inválidos
        </div>
+      <% } %>
     </main>
 
     <footer></footer>

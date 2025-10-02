@@ -20,11 +20,17 @@ module.exports = {
 
     //SE NÃO CONSEGUIU LOGAR, MANDA UMA MENDASAGEM DE ERRO
     if (!logado) {
-      return res.status(401).json({ mensagem: "Usuário ou senha inválidos" });
-    }
+    //   return res.status(401).json({ mensagem: "Usuário ou senha inválidos" });
+    res.status(401)
+    res.render("login", {titulo: "login errado", erro:"Email ou senha inválidos"}) 
+    
+  }
+
     //SE CONSEGUIU MANDA UMA MENSAGEM DE CONFIRMAÇÃO
     else {
-      res.json({ mensagem: "Login relaizado meu parceiro" });
+      // res.json({ mensagem: "Login relaizado meu parceiro" });
+      res.status(200)
+      res.render("index", {titulo: "Bem vindo", usuario: logado.nome})
     }
   },
 
