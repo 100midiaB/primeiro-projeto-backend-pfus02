@@ -8,7 +8,7 @@ const { render } = require("ejs");
 module.exports = {
   //RESPONDE A REQUISIÇÃO MOSTRANDO A VISUALIZAÇÃO DA TELA DE LOGIN
   formLogin: (req, res) => {
-    res.render("login");
+    res.render("login", { titulo: "Login"});
   },
 
   //FUNÇÃO PARA LEVAR OS DADOS PREENCHIDOS PARA O MODEL REALIZAR O LOGIN
