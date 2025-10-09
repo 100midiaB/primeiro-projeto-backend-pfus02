@@ -1,0 +1,42 @@
+<%- include('../partials/header') %>
+
+<!-- CONTEUDO DO INDEX -->
+<main class=" d-flex flex-column flex-fill text-center justify-content-center" >
+      <div class="w-50 mx-auto align-content-center bg-success" style="height: 300px;">
+       
+          <!-- SE A PÁGINA QUE CHAMOU FOR A DE CADASTRO, MOSTRA QUE O CADASTRO FOI REALIZADO, MOSTRANDO O NOME DO USUARIO QUE ACABOU DE SER CADASTRADO -->
+       <% if (tipo == "cadastro") { %>
+       <h1 class="text-white">
+           <!-- PEGA O NOME DE QUEM FOI CADASTRADO, VINDO DO OBJETO USUARIONOVO -->
+            Cadastro de <%- produtoNovo.nome %> realizado
+       </h1>
+       <!-- SE A PÁGINA QUE CHAMOU FOR A DE EDIÇÃO, MOSTRA QUE O USUARIO FOI EDITADO, MOSTRANDO O NOME DO USUARIO QUE ACABOU DE SER EDITADO -->
+       <% }  else if (tipo == "edicao") {%>
+         <h1 class="text-white">
+      <!-- PEGA O NOME DE QUEM FOI ATUALIZADO, VINDO DO OBJETO ATUALIZADO -->
+            Edicao de <%- atualizado.produto %> confirmado
+         </h1>
+          <!-- SE A PÁGINA QUE CHAMOU FOR A DE DELETAR USUARIO, MOSTRA QUE O USUARIO FOI DELETADO -->
+         <% } else { %>
+            <h1 class="text-white">
+            <!-- PEGA O NOME DE QUEM FOI DELETADO, VINDO DO OBJETO DELETADO -->
+            Produto <%- deletado.produto %> excluido
+            </h1>
+         <% } %>
+            
+      <!-- CRIANDO BOTOES PARA OUTRAS PAGINAS -->
+       <a href="/produtos">
+            <button class="btn btn-lg btn-secondary mx-2">
+                  Voltar para a lista de produtos
+            </button>
+       </a>
+     
+       <a href="/produtos/cadastrar">
+            <button class="btn btn-lg btn-primary mx-2">
+                  Voltar para a pagina de cadastro
+            </button>
+       </a>
+      </div>
+</main>
+
+<%- include('../partials/footer') %>

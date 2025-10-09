@@ -13,7 +13,6 @@ roteador.get("/login", userController.formLogin)
 //ROTA PARA ENVIAR DADOS NA PÁGINA DE LOGIN
 roteador.post("/login", userController.loginUsuario)
 
-
 //CRUD 
 
 //C = CRIAR NOVO USUÁRIO

@@ -37,14 +37,18 @@ module.exports = {
   // CRUD
   //RESPONDE A REQUISIÇÃO MOSTRANDO A VISUALIZAÇÃO DA TELA DE CADASTRO
   formCadastro: (req, res) => {
-    res.render("cadastro");
+    res.render("usuarios/cadastroUsuarios", {titulo: "Cadastro"});
   },
 
   // FUNÇÃO PARA LEVAR OS DADOS PREENCHIDOS PARA O MODEL REALIZAR O CADASTRO
   salvarUsuario: (req, res) => {
-    const { usuario, email, senha } = req.body;
-    userModel.salvar({ usuario, email, senha });
-    res.render("cadastroConfirmado");
+    const { usuario, email, senha, tipo } = req.body;
+    usuarioNovo = userModel.salvar({ usuario, email, senha, tipo });
+    res.render("usuarios/confirmacaoUsuarios", {
+      tipo: "cadastro",
+      titulo: "Cadastro confirmado",
+      usuarioNovo
+    });
   },
 
   //R

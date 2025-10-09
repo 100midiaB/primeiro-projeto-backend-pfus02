@@ -20,12 +20,13 @@ module.exports = {
      
      //CRUD
      //FUNÇÃO PARA CADASTRAR UM NOVO USUARIO
-     salvar: ({usuario, email, senha}) => {
+     salvar: ({usuario, email, senha, tipo}) => {
        const novoUsuario = {
           id: listaUsuarios.length + 1,
           usuario,
           email,
-          senha
+          senha,
+          tipo
         }
         listaUsuarios.push(novoUsuario)
         console.log("Novo usuário salvo:", novoUsuario);

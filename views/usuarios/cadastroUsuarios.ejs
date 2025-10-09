@@ -1,0 +1,67 @@
+<%- include('../partials/header') %>
+
+<!-- CONTEUDO DO INDEX -->
+<main class="container d-flex flex-column flex-fill justify-content-center">
+      <h1 class="text-center">Página de cadastro</h1>
+
+     <!-- CRIANDO O FORMULARIO PARA ENVIO DAS INFORMAÇÕES -->
+      <form action="/usuarios/cadastrar" method="POST">
+        <div class="mb-3">
+         <!-- CAIXINHA DE NOME DE USUARIO -->
+          <label for="inputNome" class="form-label fs-2 mt-2">
+            Nome de usuario
+          </label>
+          <input type="text" id="inputNome" class="form-control form-control-lg" 
+          placeholder="Digite o nome de usuario"
+          name="usuario"
+          required
+          >
+         <!-- FIM DA CAIXINHA NOME DE USUARIO -->
+
+         <!-- CAIXINHA DE EMAIL -->
+              <label for="inputEmail" class="form-label fs-2 mt-2">
+           Email
+          </label>
+           <input type="email" 
+           id="inputEmail" 
+           class="form-control form-control-lg" 
+           placeholder="Digite o email"
+           name="email"
+           required
+          >
+         <!-- FIM DE CAIXINHA DE EMAIL -->
+
+         <!-- CAIXINHA DE SENHA -->
+             <label for="inputSenha" class="form-label fs-2 mt-2">
+          Senha
+          </label>
+          <input type="password" 
+           id="inputSenha" 
+           class="form-control form-control-lg" 
+           placeholder="Digite a senha"
+           name="senha"
+           required
+          >
+         <!-- FIM DA CAIXINHA DE SENHA -->
+
+      
+         <!-- CAIXINHA DE TIPO -->
+         <label class="form-label fs-2 mt-2">
+         Tipo de usuario</label>
+         <select name="tipo" class="form-select form-select-lg mb-3">
+          <option value="Funcionario">Funcionario</option>
+          <option value="Gerente">Gerente</option>
+          <option value="Administrador">Administrador</option>
+         </select>
+         <!-- FIM DA CAIXINHA TIPO -->
+
+         <!-- BOTÃO PARA ENVIO DO FORMULARIO -->
+          <button type="submit" class="btn btn-lg btn-primary">
+            Cadastrar
+          </button>
+        </div>
+    </form>
+</main>
+
+<!-- RODAPE DE TODAS AS PAGINAS -->
+<%- include('../partials/footer') %>
