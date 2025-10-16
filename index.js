@@ -30,6 +30,8 @@ app.set('view engine', 'ejs')
 //DIFININDO 'ATALHO' ONDE BUSCAR AS VIEWS
 app.set("views",path.join(__dirname, "views"))
 
+app.use(express.static('public'))
+
 //ROTA DE PÁGINA INICIAL
 app.get("/home", (req,res) => {
     res.status(200)

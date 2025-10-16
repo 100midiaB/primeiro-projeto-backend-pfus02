@@ -65,34 +65,48 @@
           </div>
 
           <div class="col">
-            <label for="inputimagem" class="form-label fs-2 mt-2">
+            <label for="inputImagem" class="form-label fs-2 mt-2">
         imagem do produto
           </label>
-           <input type="number" 
-           id="inputQuantidade" 
+           <input type="url" 
+           id="inputImagem" 
            class="form-control form-control-lg" 
-           placeholder="Digite a quantidade do produto"
-           name="quantidade"
-           required
+           placeholder="Digite o link da imagem do produto"
+           name="imagemUrl"
+           required 
            >
-          <img class="d-flex mx-auto mt-3" style="width: 400px;" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1YexxWerdXQuVB1tJe-mhDCm4tSDSoWjOxdBmUkDlMxtYGNxPEvC5VxeztxPpjz0Uixo4k5dxi3qVZPESfq2FR7PCEjXgvSXRJ1S_azx1-Ec0WQ2SH39E5HnOhWh8AEH5dOA6Zo2bfTH9/s1600/Banho+de+dinheiro.jpg" alt="">
+          <img class="d-flex mx-auto mt-3"
+          style="width: 400px;" 
+          src="https://encurtador.com.br/jYCfD" id="previewImagem"
+          width="250px"
+          height="250px"
+          >
           </div>
           </div> 
-         <!-- FIM DA CAIXINHA DE SENHA -->
-
-      
-         <!-- CAIXINHA DE TIPO -->
-        
-         <!-- FIM DA CAIXINHA TIPO -->
-
-       
-       
-         <!-- BOTÃO PARA ENVIO DO FORMULARIO -->
           <button type="submit" class="btn btn-lg btn-primary">
             Cadastrar
           </button>
         </div>
     </form>
+
+    <!-- CODIGO PARA IMAGEM SER ALTERADA DE ACORDO COM O QUE A PESSOA COLOCAR -->
+    <script>
+    //  VARIAVEL PRA ACESSAR A CAIXINHA DE INPUT DA IMAGEM
+     const inputImagem = document.getElementById("inputImagem")
+    // VARIAVEL PARA ACESSAR A IMAGEM
+     const previewImagem = document.getElementById("previewImagem")
+
+     const imagemPadrao = "https://encurtador.com.br/jYCfD"
+
+    //  EVENTO É DISPARADO QUANDO O USUARIO COLOCA ALGO NA CAIXINHA
+    inputImagem.addEventListener("input", () => {
+      // GUARDA O QUE A PESSOA COLOCOU NA CAIXINHA NA VARIAVEL URL
+      const url = inputImagem.value
+       
+      // TROCA O VALOR DE SRC DA IMAGEM, PELA QUE O USUARIO DIGITOU NA CAIXINHA 
+      previewImagem.src = url || imagemPadrao
+    })
+    </script>
 </main>
 
 <!-- RODAPE DE TODAS AS PAGINAS -->

@@ -55,9 +55,11 @@ module.exports = {
   //FUNÇÃO PARA MOSTRAR TODOS OS USUARIOS
 
   listarUsuarios: (req, res) => {
+    // GUARDA A LISTA DE USUARIOS, QUE O MODEL MANDOU DEPOIS QUE BUSCOU O BANCO
     const usuarios = userModel.listarTodos();
-    res.json(usuarios);
-    res.render("usuarios", { usuarios });
+    // MOSTRA A TELA DE LISTA PRA PESSOA, MANDANDO A VARIAVEL COMO PARAMETRO
+    res.render("usuarios/listaUsuarios", 
+               { usuarios, titulo:"lista de usuarios" });
   },
 
   //FUNÇÃO PARA APENAS UM USUARIO

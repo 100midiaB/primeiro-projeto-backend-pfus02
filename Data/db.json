@@ -2,22 +2,25 @@
     "usuarios" :[
        {
          "id": 7,
-         "nome": "Raul bigode",
+         "usuario": "Raul bigode",
          "email": "Raulbidode@gmail.com",
-         "senha": "171"
+         "senha": "171",
+         "tipo" : "Gerente"
        },
        {
         "id": 20,
-         "nome": "Ronaldão",
+         "usuario": "Ronaldão",
          "email": "Ronadao@gmail.com",
-         "senha": "2009"
+         "senha": "2009",
+         "tipo": "Funcionario"
        },
        
        {
         "id": 10,
-         "nome": "Alele",
+         "usuario": "Alele",
          "email": "Alele@gmail.com",
-         "senha": "1001"
+         "senha": "1001",
+         "tipo": "Funcionario"
        }
        
     ],
