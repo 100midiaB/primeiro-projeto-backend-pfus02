@@ -30,15 +30,15 @@
                <!-- CORPO DA TABELA -->
               <tbody>
                    <!-- USANDO A FUNÇÃO FOREACH PARA PERCORRER O ARRAY DE USUARIOS -->
-                  <% usuarios.forEach((usuarios) => { %>
+                  <% usuarios.forEach((usuario) => { %>
                         <tr>
-                            <td> <%= usuarios.id %> </td>
-                            <td> <%= usuarios.usuario %> </td>
-                            <td> <%= usuarios.email %> </td>
-                            <td> <%= usuarios.tipo %> </td>
+                            <td> <%= usuario.id %> </td>
+                            <td> <%= usuario.usuario %> </td>
+                            <td> <%= usuario.email %> </td>
+                            <td> <%= usuario.tipo %> </td>
                             <td>
                               <!-- BOTÕA DE EDITAR -->
-                               <a href="/usuarios/<%= usuario.id %>">
+                               <a href="/usuarios/<%= usuario.id %>" style="text-decoration: none;">
                                     <button class="btn btn-sm btn-warning me-2">
                                      <i class="bi bi-pencil-square"></i>
                                     Editar
@@ -48,7 +48,7 @@
                               <!-- BOTÃO DE EXCLUIR -->
                                <a href="">
                   <button class="btn btn-sm btn-danger"
-                  onclick="confirmaExclusao('<%= usuario.usuario%>', '<%= usuario.id')"
+                  onclick="confirmaExclusao('<%= usuario.usuario%>', '<%= usuario.id %>')"
                   >
                         <i class="bi bi-trash"></i>
                   Excluir     

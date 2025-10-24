@@ -29,10 +29,10 @@ roteador.get("/", userController.listarUsuarios)
 roteador.get("/:id", userController.buscarUsuario)
 
 // U = ATUALIZAR UM USUARIO
-roteador.put("/:id", userController.atualizarUsuario)
+roteador.post("/:id", userController.atualizarUsuario)
 
 // D = DELETAR UM USUARIO
-roteador.delete("/:id", userController.deletarUsuario)
+roteador.get("/deletar/:id", userController.deletarUsuario)
 
 
 //CRIANDO A EXPORTAÇÃO DESSE ARQUIVO

@@ -1,0 +1,123 @@
+<%- include('../partials/header') %>
+
+<!-- Conteudo do index  -->
+<main class="container d-flex flex-column flex-fill justify-content-center">
+  <h1 class="text-center">PÁGINA EDITAR PRODUTOS</h1>
+
+  <!-- CRIANDO O FORMULÁRIO PARA ENVIO DAS INFORMAÇÕES  -->
+  <form action="/produtos/<%= produto.id %>" method="POST">
+    <div class="mb-3">
+      <!-- Caixinha de nome de usuário  -->
+      <label for="inputNome" class="form-label fs-2 mt-2">
+        Nome do produto
+      </label>
+      <input
+        type="text"
+        id="inputNome"
+        class="form-control form-control-lg"
+        placeholder="Digite o nome do produto"
+        name="nome"
+        required
+        value="<%= produto.nome %>"
+      />
+      <!-- Fim de caixinha nome de usuário -->
+
+      <!-- Caixinha de email  -->
+      <label for="inputdescricao" class="form-label fs-2 mt-2">
+        Descrição
+      </label>
+      <input
+        type="text"
+        id="inputdescricao"
+        class="form-control form-control-lg"
+        placeholder="Digite a descricao"
+        name="descricao"
+        required
+        value="<%= produto.descricao %>"
+      />
+      <!-- Fim de caixinha email -->
+
+      <!-- Caixinha de senha  -->
+      <div class="row">
+        <div class="col">
+          <label for="inputcategoria" class="form-label fs-2 mt-2">
+            categoria de produto
+          </label>
+          <select name="categoria" class="form-select form-select-lg mb-3">
+            <option value="limpeza" <%= produto.categoria === "limpeza" ? "select" : "" %>> Limpeza </option>
+        <option value="alimento" <%= produto.categoria === "alimento" ? "select" : "" %>> Alimento </option>
+        <option value="eletrodomestico" <%= produto.categoria === "eletrodomestico" ? "select" : "" %>> Eletrodomestico </option>
+          </select>
+
+          <label for="inputpreco" class="form-label fs-2 mt-2"> Preço </label>
+          <input
+            type="number"
+            id="inputpreco"
+            class="form-control form-control-lg"
+            placeholder="Digite o preço produto"
+            name="preco"
+            required
+            value=<%= produto.preco %>
+          />
+          <label for="inputpreco" class="form-label fs-2 mt-2">
+            Quantidade
+          </label>
+          <input
+            type="number"
+            id="inputquantidade"
+            class="form-control form-control-lg"
+            placeholder="Digite a quantidade produto"
+            name="quantidade"
+            required
+            value=<%= produto.quantidade %>
+          />
+        </div>
+
+        <div class="col">
+          <label for="inputImagem" class="form-label fs-2 mt-2">
+            Imagem do produto
+          </label>
+          <input
+            type="url"
+            id="inputImagem"
+            class="form-control form-control-lg"
+            placeholder="Digite o link da imagem do produto"
+            name="imagem"
+            required
+            value=<%= produto.imagem %>
+          />
+          <img
+            src= <%= produto.imagem %>
+            class="rounded mx-auto d-block mt-2"
+            id="previewImagem"
+            width="250px"
+            height="250px"
+          />
+        </div>
+      </div>
+      <button type="submit" class="btn btn-lg btn-primary">Editar</button>
+    </div>
+  </form>
+
+  <!-- Codigo para imagem ser alterada de acordo com o que a pessoa colocar -->
+  <script>
+    // variavel para acessar a caixinha de input da imagem
+    const inputImagem = document.getElementById("inputImagem");
+    // variavel poara acessar a imagem
+    const previewImagem = document.getElementById("previewImagem");
+
+    const imagemPadrao =
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNMnJ3i8BARfyzD9fxQ9GvorEDF1gTrZqzrA&s";
+
+    inputImagem.addEventListener("input", () => {
+      // guarda o que a pessoa coloca na caixinha na variavel url
+      const url = inputImagem.value;
+
+      //troca o valor src da imagem, pelo que o usuario digitou na caixinha
+      previewImagem.src = url || imagemPadrao;
+    });
+  </script>
+</main>
+
+<!-- Rodape de todas as páginas  -->
+<%- include('../partials/footer') %>

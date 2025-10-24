@@ -1,0 +1,58 @@
+<%- include('../partials/header') %>
+
+<!-- CONTEÚDO DO INDEX -->
+<main class="container text-center mt-4">
+  <h1 class="mb-4">Lista de Produtos</h1>
+
+  <!-- BOTÃO PARA PÁGINA DE CADASTRO -->
+  <a href="/produtos/cadastrar" class="mb-4 d-inline-block">
+    <button class="btn btn-lg btn-primary">
+      <i class="bi bi-plus-circle"></i>
+      Cadastrar
+    </button>
+  </a>
+
+  <!-- LISTA DE PRODUTOS -->
+  <div class="d-flex flex-wrap justify-content-center gap-4">
+    <% if (produtos && produtos.length > 0) { %>
+      <% produtos.forEach((produto) => { %>
+        <div class="card shadow-sm" style="width: 18rem;">
+         <img src="<%= produto.imagem %>" class="card-img-top" alt="<%= produto.nome %>" height="250">
+
+
+          <div class="card-body text-start">
+            <h5 class="card-title"><%= produto.nome %></h5>
+            <p class="card-text"><b>Descrição:</b> <%= produto.descricao %></p>
+            <p class="card-text"><b>Categoria:</b> <%= produto.categoria %></p>
+            <p class="card-text"><b>Preço:</b> R$ <%= produto.preco %></p>
+            <p class="card-text"><b>Quantidade:</b> <%= produto.quantidade %></p>
+
+            <div class="d-flex justify-content-between mt-3">
+              <a href="/produtos/<%= produto.id %>" class="btn btn-sm btn-warning">
+                <i class="bi bi-pencil-square"></i> Editar
+              </a>
+
+              <button
+                class="btn btn-sm btn-danger"
+                onclick="confirmaExclusao('<%= produto.nome %>', '<%= produto.id %>')"
+              >
+                <i class="bi bi-trash"></i> Excluir
+              </button>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    <% } else { %>
+      <p class="text-muted mt-4">Nenhum produto cadastrado ainda.</p>
+    <% } %>
+  </div>
+</main>
+
+<script>
+  // Função de confirmação de exclusão
+  function confirmaExclusao(nome, id) {
+    if (confirm(`Tem certeza que deseja excluir o produto "${nome}"?`)) {
+      window.location.href = `/produtos/deletar/${id}`;
+    }
+  }
+</script>

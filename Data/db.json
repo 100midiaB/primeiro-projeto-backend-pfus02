@@ -29,26 +29,30 @@
       {
         "id" : 22,
         "nome" : "pote",
-        "descrição": "guarda varias coisas",
-        "preço" : 10,
+        "descricao": "guarda varias coisas",
+        "preco" : 10,
         "quantidade" : 2,
-        "categoria": "utilitário domestico"
+        "categoria": "utilitário domestico",
+        "imagem": "https://casafreitas2.vteximg.com.br/arquivos/ids/246515-1000-1000/4656002500003.jpg?v=637947134321600000"
+
       },
       {
         "id" : 21,
         "nome" : "Camisa",
-        "descrição": "Te deixa vestido",
-        "preço" :90,
+        "descricao": "Te deixa vestido",
+        "preco" :90,
         "quantidade" : 1,
-        "categoria": "Roupa"
+        "categoria": "Roupa",
+        "imagem": "https://images.tcdn.com.br/img/img_prod/275189/camisa_azul_royal_100_poliester_para_sublimacao_m_2701_1_20200722153204.jpg"
       },
       {
         "id" : 20,
         "nome" : "apartamento",
-        "descrição": "lugar para se residir",
-        "preço" : 750.00,
+        "descricao": "lugar para se residir",
+        "preco" : 750.00,
         "quantidade" : 1,
-        "categoria": "Moradia"
+        "categoria": "Moradia",
+        "imagem": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZEw6Mcg6gKGFpHJqm_YEh39fVir67xMhkfg&s"
       }
 
      ]

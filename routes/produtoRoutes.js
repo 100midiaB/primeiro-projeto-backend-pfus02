@@ -15,10 +15,10 @@ roteador.get("/", produtoController.listarProdutos)
 roteador.get("/:id", produtoController.buscarProduto)
 
 
-roteador.put("/:id", produtoController.atualizarProduto)
+roteador.post("/:id", produtoController.atualizarProduto)
 
 
-roteador.delete("/:id", produtoController.deletarProduto)
+roteador.get("/deletar/:id", produtoController.deletarProduto)
 
 
 
